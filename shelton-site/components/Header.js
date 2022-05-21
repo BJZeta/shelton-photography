@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="grid grid-cols-2 bg-zinc-900 text-white py-10 px-10">
+    <header className="fixed w-full h-36 grid grid-cols-2 bg-gradient-to-br from-gray-900 to-gray-700 text-white py-10 px-10">
       <div>
         <Link href="/">
           <a className="text-6xl">
