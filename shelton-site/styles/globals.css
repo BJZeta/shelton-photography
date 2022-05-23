@@ -44,6 +44,11 @@
     animation-delay: 16s;
   }
 
+  .bg-image-style {
+    background-position: center;
+    background-size: cover;
+  }
+
   @keyframes imageAnimation {
     0% {
       opacity: 0;
