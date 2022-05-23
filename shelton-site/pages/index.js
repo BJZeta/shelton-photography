@@ -6,7 +6,7 @@ import PageLinks from "../components/PageLinks";
 export default function Home() {
   return (
     <Layout>
-      <div className="relative flex w-full h-[50em] bg-black -z-10 mt-2">
+      <div className="relative flex w-full h-[50em] bg-black z-0 mt-2">
         <div id="jumbotron" className="slideshow">
           <li></li>
           <li></li>
@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="w-full h-80 grid grid-flow-col grid-cols-2 my-10">
+      <div className="w-full h-80 grid grid-cols-1 lg:grid-cols-2 my-10 ">
         <PageLinks
           title="Videos"
           link="/videos"
@@ -29,7 +29,7 @@ export default function Home() {
           info="Check out my latest pics"
           image="bg-[url('/static/shelton-pic5.jpg')]"
         />
-      </section>
+      </div>
     </Layout>
   );
 }
