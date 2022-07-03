@@ -12,7 +12,6 @@ export default function Home() {
           <li></li>
           <li></li>
           <li></li>
-          <li></li>
         </div>
       </div>
 
