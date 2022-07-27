@@ -8,6 +8,7 @@ export default function Layout({ children }) {
       <Header />
 
       <main className="mt-36">{children}</main>
+      <div id="#modal"></div>
 
       <Footer />
     </div>
