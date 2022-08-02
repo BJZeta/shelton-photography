@@ -1,28 +1,25 @@
-import React, { useState } from "react";
-import Photo from "./Photo";
-import Modal from "react-modal";
+import { Dialog } from "@headlessui/react";
+import React, { useRef } from "react";
 
-const customStyle = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%)",
-  },
-};
+export default function PhotoModal({ onClose = () => {}, children }) {
+  let overlayRef = useRef();
 
-export default function PhotoModal({ photoInfo }) {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  return <div></div>;
+  return (
+    <Dialog
+      static
+      open={true}
+      onClose={onClose}
+      initialFocus={overlayRef}
+      className="fixed inset-0 z-10 flex items-center justify-center"
+    >
+      <Dialog.Overlay
+        ref={overlayRef}
+        className="fixed inset-0 bg-gray-600/80"
+      />
+      <div className="relative flex items-center justify-center w-1/2">
+        {children}
+      </div>
+    </Dialog>
+  );
 }
+

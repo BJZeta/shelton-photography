@@ -1,6 +1,8 @@
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import PhotoModal from "../../components/PhotoModal";
+import PhotoDetail from "../../components/PhotoDetail";
 import "react-slideshow-image/dist/styles.css";
 import { sanityClient } from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -12,11 +14,10 @@ function urlFor(source) {
 }
 
 export default function PhotosPage({ photos }) {
-  let router = useRouter();
+  // let router = useRouter()
 
   return (
-    <Layout>
-      {router.query.image && <div>Modal</div>}
+    <Layout>    
       <div className="h-[100vh] w-full bg-black px-10 pt-10">
         <div id="headline" className="float-right text-white">
           <h1 className="text-5xl">Photos</h1>
@@ -30,8 +31,8 @@ export default function PhotosPage({ photos }) {
                 slug && (
                   <div key={_id} className="w-72 my-auto">
                     <Link
-                      href={`/?image=${slug.current}`}
-                      as={`/${slug.current}`}
+                      href={`/photos/[slug]`}
+                      as={`/photos/${slug.current}`}
                     >
                       <a>
                         <img
