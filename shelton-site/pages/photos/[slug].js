@@ -4,29 +4,29 @@ import { BiArrowBack } from "react-icons/bi";
 import { sanityClient } from "../../client";
 import Link from "next/link";
 
-export default function PhotoPage({ mainImage, title }) {
+export default function PhotoPage({ mainImage, title, description }) {
   return (
-    <div className="relative w-screen h-screen bg-gray-800">
-      <Link href="/photos/">
-        <a>
-          <BiArrowBack />
-        </a>
-      </Link>
-
-      <div className="absolute inset-0">
-        <div className="flex items-center justify-center h-screen">
-          <div className="w-1/2">
-            <PhotoDetail mainImage={mainImage} title={title} />
-          </div>
+    <div className="gird grid-rows-2 h-screen py-20 bg-gray-800 text-slate-100 overflow-auto">
+        <div className="flex justify-evenly text-5xl px-20 mb-10">
+          <Link href="/photos/">
+            <a>
+              <BiArrowBack/>
+            </a>
+          </Link>
+          <h2>{title}</h2>
+        </div>
+        <div className="xl:flex w-1/2 mx-auto items-center">
+          <PhotoDetail mainImage={mainImage} title={title} />
+          <p className="px-10 text-xl">{description}</p>
         </div>
       </div>
-    </div>
   );
 }
 
 const query = `*[_type == "photo" && slug.current == $slug][0]{
   mainImage,
   title,
+  description,
   slug,
 }`;
 
@@ -55,6 +55,7 @@ export async function getStaticProps(context) {
       props: {
         mainImage: photo.mainImage,
         title: photo.title,
+        description: photo.description,
         slug: photo.slug,
       },
     };

@@ -8,6 +8,6 @@ function urlFor(source) {
 }
 
 export default function PhotoDetail({ mainImage, title }) {
-  return <img src={urlFor(mainImage).width(200).url()} alt={title} />;
+  return <img src={urlFor(mainImage).width(400).url()} alt={title} />;
 }
 
