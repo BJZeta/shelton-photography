@@ -15,7 +15,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full h-80 grid grid-cols-1 lg:grid-cols-2 my-10 ">
+      <div className="w-full bg-gray-700 grid grid-cols-1 lg:grid-cols-2 py-10 ">
         <PageLinks
           title="Videos"
           link="/videos"
